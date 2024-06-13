@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Collection</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-5">Book Collection</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Book Name</th>
+                    <th>Category</th>
+                    <th>Language</th>
+                    <th>Year</th>
+                    <th>Number</th>
+                
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>{{ book.bname }}</td>
+                        <td>{{ book.bcategory }}</td>
+                        <td>{{ book.language }}</td>
+                        <td>{{ book.byear }}</td>
+                        <td>{{ book.bnumber }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
