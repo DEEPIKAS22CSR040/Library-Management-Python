@@ -14,8 +14,8 @@
                 <h1 class="text-center mb-4">Edit Book</h1>
                 <div class="card p-4">
                     <h2 class="mb-4">Enter The Book Details</h2>
-                    <form action="/edit/{{book.id}}" method="POST">
-                        <input type="hidden" name="id" value="{{ book.id }}">
+                    <form action="/edit/{{ book.bid }}" method="POST">
+                        <input type="hidden" name="bid" value="{{ book.bid }}">
                         <div class="form-group">
                             <label for="bname">Book Name</label>
                             <input type="text" id="bname" name="bname" value="{{ book.bname }}" placeholder="Enter Book Name" class="form-control" required>
@@ -42,9 +42,14 @@
                             <label for="byear">Book Year</label>
                             <input type="number" id="byear" name="byear" value="{{ book.byear }}" placeholder="Enter Book Year" class="form-control" required>
                         </div>
+                        <!-- New fields from author table -->
                         <div class="form-group">
-                            <label for="bnumber">Book Number</label>
-                            <input type="number" id="bnumber" name="bnumber" value="{{ book.bnumber }}" placeholder="Enter Book Number" class="form-control" required>
+                            <label for="author_name">Author Name</label>
+                            <input type="text" id="author_name" name="author_name" value="{{ book.author_name }}" placeholder="Enter Author Name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description" rows="3" placeholder="Enter Description" class="form-control" required>{{ book.description }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Submit</button>
                     </form>
