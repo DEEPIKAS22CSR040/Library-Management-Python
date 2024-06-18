@@ -1,45 +1,59 @@
-<!-- table1.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Books Table</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
-    <div class="container my-5">
-        <h1 class="text-center mb-4">Books Table</h1>
-        <div class="table-responsive">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Book ID</th>
-                        <th>Book Name</th>
-                        <th>Category</th>
-                        <th>Language</th>
-                        <th>Year</th>
-                        <th>Author Name</th>
-                        <th>Description</th>
-                       
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for book in books %}
-                    <tr>
-                        <td>{{ book.bid }}</td>
-                        <td>{{ book.bname }}</td>
-                        <td>{{ book.bcategory }}</td>
-                        <td>{{ book.language }}</td>
-                        <td>{{ book.byear }}</td>
-                        <td>{{ book.author_name }}</td>
-                        <td>{{ book.description }}</td>
-                        
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-    </div>
+    <h2>Books Table</h2>
+    <table>
+        <tr>
+            <th>Book ID</th>
+            <th>Book Name</th>
+            <th>Category</th>
+            <th>Language</th>
+            <th>Year</th>
+            <th>Author Name</th>
+            <th>Description</th>
+            <th>Available</th>
+            <th>Action</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.bid }}</td>
+            <td>{{ book.bname }}</td>
+            <td>{{ book.bcategory }}</td>
+            <td>{{ book.language }}</td>
+            <td>{{ book.byear }}</td>
+            <td>{{ book.author_name }}</td>
+            <td>{{ book.description }}</td>
+            <td>{{ 'Yes' if book.available else 'No' }}</td>
+            <td>
+                {% if book.available %}
+                <a href="{{ url_for('bp', bid=book.bid) }}" class="btn btn-secondary btn-sm">Borrow</a>
+                {% else %}
+                <a href="{{ url_for('return_book', bid=book.bid) }}" class="btn btn-secondary btn-sm">Return</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

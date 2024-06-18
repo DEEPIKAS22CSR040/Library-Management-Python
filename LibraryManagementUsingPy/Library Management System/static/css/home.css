@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-image:url('https://getwallpapers.com/wallpaper/full/5/1/c/888681-best-library-background-images-1920x1080-retina.jpg');
+    background-image:url('https://wallpaperaccess.com/full/922671.jpg');
 }
 .container {
     max-width: 800px;
@@ -29,16 +29,16 @@ h2 {
 
 p {
     margin-bottom: 10px;
-    color: #28a745; /* Success message color */
+    color: #28a745; 
 }
 
 .form {
     display: flex;
-    flex-direction: column; /* Change flex direction to column */
+    flex-direction: column; 
 }
 
 .right, .left {
-    margin-bottom: 20px; /* Add margin between columns */
+    margin-bottom: 20px; 
 }
 
 label {
@@ -48,7 +48,7 @@ label {
 input[type="text"],
 input[type="number"],
 select {
-    width: 100%; /* Set width to 100% */
+    width: 100%; 
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ced4da;

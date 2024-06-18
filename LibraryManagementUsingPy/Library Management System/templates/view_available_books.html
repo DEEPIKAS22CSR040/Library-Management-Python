@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Books</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            background-image: url('https://tse2.mm.bing.net/th?id=OIP.u6oT2i81TZR7wvU9urvfIgHaE8&pid=Api&P=0&h=180');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        h1 {
+            color: white;
+        }
+        .table-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Available Books</h1>
+        <div class="table-container">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Language</th>
+                        <th>Year</th>
+                        <th>Author</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for book in books %}
+                    <tr>
+                        <td>{{ book.bid }}</td>
+                        <td>{{ book.bname }}</td>
+                        <td>{{ book.bcategory }}</td>
+                        <td>{{ book.language }}</td>
+                        <td>{{ book.byear }}</td>
+                        <td>{{ book.author_name }}</td>
+                        <td>{{ book.description }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+            <button class="btn btn-secondary btn-block" onclick="window.history.back()">Back</button>
+            
+        </div>
+    </div>
+</body>
+</html>
